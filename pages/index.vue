@@ -1,10 +1,15 @@
 <script setup lang="ts">
 const { $client } = useNuxtApp()
 
-const { data: hello } = await $client.hello.useQuery({})
+const { data: posts } = await $client.getPosts.useQuery()
 </script>
 
 <template>
-  <pre>{{ hello?.greeting }}</pre>
-  <div></div>
+  <div>
+    <ul>
+      <li v-for="post in posts?.posts" :key="post.id">
+        {{ post.title }} | {{ post.content }}
+      </li>
+    </ul>
+  </div>
 </template>
