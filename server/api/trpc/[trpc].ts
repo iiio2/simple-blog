@@ -14,10 +14,16 @@ export const appRouter = router({
         text: z.string().nullish(),
       })
     )
-    .query(({ input }) => {
+    .query(() => {
       // This is what you're returning to your client
       return {
-        greeting: `hello ${input?.text ?? 'world'}`,
+        greeting: {
+          posts: [
+            { id: 1, title: 'john doe' },
+            { id: 2, title: 'mark john' },
+            { id: 3, title: 'adam smith' },
+          ],
+        },
       }
     }),
 })
