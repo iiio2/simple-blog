@@ -10,6 +10,14 @@ export const appRouter = router({
       posts,
     }
   }),
+  addPost: publicProcedure.mutation(async ({ input }: { input: any }) => {
+    await prisma.post.create({
+      data: {
+        title: input.title,
+        content: input.content,
+      },
+    })
+  }),
 })
 
 export type AppRouter = typeof appRouter

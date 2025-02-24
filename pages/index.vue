@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AddPost from '../components/AddPost.vue'
 const { $client } = useNuxtApp()
 
 const { data: posts } = await $client.getPosts.useQuery()
@@ -11,5 +12,6 @@ const { data: posts } = await $client.getPosts.useQuery()
         {{ post.title }} | {{ post.content }}
       </li>
     </ul>
+    <AddPost />
   </div>
 </template>
