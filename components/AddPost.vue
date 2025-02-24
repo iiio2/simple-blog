@@ -3,13 +3,21 @@ import { useForm } from 'vee-validate'
 
 const { $client } = useNuxtApp()
 
-const { values, defineField } = useForm()
+const { values, defineField } = useForm({
+  initialValues: {
+    title: '',
+    content: '',
+  },
+})
 
 const [title, titleAttrs] = defineField('title')
 const [content, contentAttrs] = defineField('content')
 
 const onSubmit = async () => {
-  await $client.addPost.mutate(values)
+  await $client.addPost.mutate({
+    title: values.title,
+    content: values.content,
+  })
   console.log(`submitted`)
 }
 </script>
