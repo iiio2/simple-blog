@@ -18,6 +18,8 @@ const onSubmit = async () => {
     title: values.title,
     content: values.content,
   })
+  title.value = ''
+  content.value = ''
   await refreshNuxtData()
   console.log(`submitted`)
 }
