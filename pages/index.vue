@@ -9,7 +9,7 @@ const { data: posts } = await $client.getPosts.useQuery()
   <div>
     <ul>
       <li v-for="post in posts?.posts" :key="post.id">
-        {{ post.title }} | {{ post.content }}
+        {{ post.title }} | {{ post.content }} |
       </li>
     </ul>
     <AddPost />

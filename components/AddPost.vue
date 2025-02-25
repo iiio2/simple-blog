@@ -30,6 +30,4 @@ const onSubmit = async () => {
     <input v-model="content" v-bind="contentAttrs" type="text" />
     <button type="submit">submit</button>
   </form>
-
-  <pre>values: {{ values.title }} {{ values.content }}</pre>
 </template>
